@@ -19,6 +19,6 @@ from django.urls import include, path
 from core.views import index, contato
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('painel/', admin.site.urls),
     path('', include('core.urls')),
 ]
