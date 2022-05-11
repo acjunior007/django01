@@ -1,14 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
+    
     <title>Index</title>
 </head>
 <body>
     <h1>Index</h1>
 
+    <img src="{% static 'images/django-logo.png' %}">
     <h2>{{ curso }}</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="3">
+                    Produtos
+                </th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+            </tr>
+            {% for produto in produtos %}
+                <tr>
+                    <td> <a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
+                    <td> {{ produto.preco }} </td>
+                    <td> {{ produto.estoque }} </td>
+                </tr>
+                
+            {% endfor %}   
+        </tbody>
+    </table>
+
+    <button onClick="teste();">Cliquei aqui</button>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
